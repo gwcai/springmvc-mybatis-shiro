@@ -1,0 +1,356 @@
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+    width:5px;
+    height:10px
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    background-color:#fff;
+    /*-webkit-box-shadow:inset006pxrgba(0,0,0,0.3);*/
+    border-radius:10px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    background-color:#4e4e4e;
+    border-radius:10px;
+    /*-webkit-box-shadow:inset006pxrgba(0,0,0,0.5);*/
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background:rgba(255,0,0,0.4);
+}
+#app{
+    height:100%
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+.page-main-color{
+    background-color:#20a0ff;
+}
+.main-bk{
+    background-color:#f7f8fc;
+}
+.page-content-bk-color{
+    background-color:#fff;
+}
+.head-warp{
+    height:80px;
+}
+.head-warp>.header{
+    height: 80px;
+    color: #fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 80px;
+    z-index: 100;
+    position: relative;
+}
+
+.main-content-1080{
+    width:1080px;
+    margin:0 auto;
+}
+.main-content-large{
+    width:1500px;
+    margin:0 auto
+}
+.user-circle-img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+.header-control{
+    color:#fff
+}
+.header-title{
+    font-size:30px;
+}
+.header-control a{
+    font-size:16px;
+    color:#fff;
+}
+.msg-tip-warp{
+    margin-right:40px;
+    padding-top: 7px;
+    height: 80px;
+    font-size:36px;
+}
+.page-container{
+    padding-top:56px
+}
+.form-nav{
+    background-color:#fff;
+    width:240px;
+    height:530px;
+}
+.el-menu{
+    background-color:#fff !important;
+    border-right: none;
+}
+.form-nav-ul{
+    min-height:477px
+}
+
+.menu-title{
+    height:50px;
+    padding-top:16px;
+    padding-left:23px;
+    color:#fff;
+}
+.page-right-content{
+    margin-left:30px;
+    min-height:530px;
+}
+.page-content-bk{
+    height:438px;
+    width:810px;
+    padding-top:25px;
+    padding-left:25px;
+}
+.form-group>label{
+    line-height:2.5
+}
+.input-box{
+    width:480px;
+}
+.page-content-bk .el-select{
+    width:100%;
+}
+.form-button-area{
+    margin-left:84px;
+}
+.page-right-list{
+    width:1230px
+}
+.mar-l-20{
+    margin-left:20px
+}
+.pageInation{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.el-form--label-top .el-form-item__label{
+    padding: 0 0 0px;
+}
+.el-form-item__label{
+   font-size: 15px;
+}
+.el-form-item>label{
+    line-height: 2.5;
+}
+.el-form-item__content{
+    line-height:initial
+}
+.el-form-item{
+    margin-bottom:20px;
+}
+.label-col{
+    line-height:2.5;
+}
+.el-date-editor--datetimerange.el-input{
+    width:100%;
+}
+.switch-area{
+    line-height:2.5;
+}
+.top-search-area{
+    margin-top:20px
+}
+[v-cloak]{
+    　　display:none
+}
+.grey-bk{
+    background-color:#f0f0f0 !important
+}
+.info-title{
+    font-size: 18px;
+    font-weight: bold;
+}
+.alert-wrapper{
+    height:20px
+}
+.fileBatchBox{
+    width: 47%;
+    height: 600px;
+    padding: 0 10px;
+}
+.ListBox{
+    width: 330px;
+    height: 600px;
+    background-color: #f1f1f1;
+    padding: 0 10px;
+}
+.ListBox .list-group li{
+    background-color:#f1f1f1;
+}
+#fileSendPerson-div{
+    width: 580px;
+    padding: 0 10px;
+}
+.fileSendIcon{
+    position: relative;
+    top: 260px;
+}
+.pointer{
+    cursor:pointer
+}
+.list-search{
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+.share-list-title{
+    border-bottom: 2px solid #4a8bee;
+    font-weight: bold;
+}
+.ListBox .list-group{
+    height:470px
+}
+.el-pagination__total,.btn-prev,.el-pager,.btn-next{
+    margin-top:10px !important;
+}
+.el-pagination__editor{
+    border:none !important
+}
+.common-table-warp {
+    margin-top: 10px;
+    /*border-top:1px solid #f0f0f0;*/
+    /*border-left: 1px solid #f0f0f0;*/
+    /*border-right: 1px solid #f0f0f0;*/
+}
+table{border-collapse: initial !important;}
+.el-pagination__jump{
+    vertical-align:initial !important;
+    margin-top:9px
+}
+.el-table td, .el-table th{
+    padding:5px
+}
+.page-sidebar-expanded .page-with-layout-nav{
+    margin-left:220px
+}
+.page-sidebar-expanded .content-wrapper{
+    /*width:90% !important;*/
+    width: calc(100% - 220px) !important;
+}
+.area-title{
+    background-color:#f2f2f2
+}
+.compare-border{
+    border:1px solid #cdcdcd
+}
+.compare-item{
+    margin-bottom:5px;
+}
+.compare-item p{
+    margin:0;
+}
+.compare-tips{
+    color:#909090;
+    font-size:14px;
+}
+.text-blue-bold{
+    margin-bottom:5px;
+    color:#6db9f0;
+    font-weight:bold
+}
+.compare-border th{
+      color: #6dc8f6;
+      background-color:blue
+}
+.sample-item{
+    padding:10px;
+}
+.sample-item-bold{
+    font-size:18px;
+    font-weight:bold;
+    color:#6dc8f6
+}
+.current-selected-area{
+    padding:10px;
+}
+.current-selected-area p{
+    border-bottom:1px solid #ececec;
+    margin:0;
+}
+.current-selected-area p:nth-child(2n){
+    background-color:#ececec
+}
+.el-upload__input{
+    display:none !important;
+}
+.dna-info-border{
+    height:40px;
+}
+.dna-info-item-name{
+    width:202px;
+    display:inline-block;
+}
+.dnaInfo-select{
+    width:200px;
+}
+.dnaInfo-area-title{
+    border-bottom:2px solid #4b8ace
+}
+.dnaInfo-area-table{
+    border-color:#d2dce5;
+    border-collapse: collapse;
+}
+.dnaInfo-area-table td{
+    padding:5px;
+}
+.dnaInfo-area-table-item{
+    border:1px solid #aab2ba
+}
+.table-item{
+    display:inline-block;
+    width:210px;
+    height:30px;
+    padding:5px;
+}
+.table-item.item-with-bk{
+    width:180px;
+}
+
+.item-with-bk{
+    background-color:#d2dce5
+}
+.compare-tree{
+    min-height:300px;
+}
+.dna-detail-name-td{
+    width:120px;
+    height:25px;
+    background-color:#e1e8f0;
+    text-align:right;
+}
+.dna-detail-table{
+    border-color:#d2dce5
+}
+.dna-detail-table td{
+    padding:5px;
+}
+.text-color-red-bold{
+    color: #ff3a32;
+    font-weight:bold;
+}
+.search-list-area{
+    width: 1000px;
+    margin: 0 auto;
+}
+.search-list-area .el-form-item__content{
+    width:200px;
+}
+.search-list-area .el-range-input{
+    width:38%;
+}
+.search-list-area .el-range-separator{
+    width:12%;
+}
+.double-input{
+    width:45px;
+}
+
