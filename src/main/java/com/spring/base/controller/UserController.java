@@ -4,6 +4,7 @@ import com.spring.base.entity.User;
 import com.spring.base.form.UserForm;
 import com.spring.base.form.UserLoginForm;
 import com.spring.base.service.impl.UserServiceImpl;
+import com.spring.base.system.MD5Util;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -43,6 +44,8 @@ public class UserController {
 
     @PostMapping("save")
     public String save(Model model,UserForm userForm){
+        userForm.setPassword(MD5Util.getRowMD5(userForm.getPassword()));
+        userForm.setSalt(String.valueOf(System.currentTimeMillis()));
         userService.save(userForm.as());
         return "user/list";
     }

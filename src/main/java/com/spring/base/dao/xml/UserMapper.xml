@@ -40,10 +40,13 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.spring.base.entity.User">
+    <selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="id">
+      SELECT nextval('sq_id_generator')
+    </selectKey>
     insert into "user" (id, name, birthday,
-      sex, address)
+      sex, address, login_name, password,salt)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, 
-      #{sex,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR})
+      #{sex,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},#{loginName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{salt,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.spring.base.entity.User">
     insert into "user"

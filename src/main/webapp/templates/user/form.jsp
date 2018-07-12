@@ -13,7 +13,7 @@ To change this template use File | Settings | File Templates.
     <title>Title</title>
 </head>
 <body>
-<form class="form-horizontal" role="form" action="/user/save">
+<form class="form-horizontal" role="form" action="/user/save" method="post">
     <input nme="id" type="hidden" value="">
     <div class="form-group">
         <label for="name" class="col-sm-2 control-label">名字</label>
@@ -36,7 +36,7 @@ To change this template use File | Settings | File Templates.
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">登录</button>
+            <button type="submit" class="btn btn-default">保存</button>
         </div>
     </div>
 </form>
