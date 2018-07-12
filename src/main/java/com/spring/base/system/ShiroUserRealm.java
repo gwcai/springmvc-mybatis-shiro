@@ -71,9 +71,11 @@ public class ShiroUserRealm extends AuthorizingRealm {
         if (CollectionUtils.isNotEmpty(user.getRoleList())) {
             for (Role role : user.getRoleList()) {
                 authorizationInfo.addRole(role.getCode());
-                role.getPermissionList().stream().forEach(permission -> {
-                    authorizationInfo.addStringPermission(permission.getCode());
-                });
+                if(null != role && CollectionUtils.isNotEmpty(role.getPermissionList())) {
+                    role.getPermissionList().stream().forEach(permission -> {
+                        authorizationInfo.addStringPermission(permission.getCode());
+                    });
+                }
             }
         }
         return authorizationInfo;

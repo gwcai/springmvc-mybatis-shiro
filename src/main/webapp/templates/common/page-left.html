@@ -1,4 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+
 <!--注意：菜单项的index必须唯一-->
 <li class="active">
     <a url="/element" data-id="1" onclick="openURL($(this))">
@@ -14,22 +16,30 @@
     </a>
     <ul class="submenu">
         <li>
-            <a url="/admin/module/" data-id="4-1" onclick="openURL($(this))">
+            <a url="/user/add/" data-id="1-1" onclick="openURL($(this))">
                 <i class="menu-icon fa fa-caret-right"></i>
-                <span class="menu-text">模块</span>
+                <span class="menu-text">用户添加</span>
             </a>
         </li>
         <li>
-            <a url="/admin/module/add" data-id="4-2" onclick="openURL($(this))">
+            <a url="/permission/add/" data-id="1-2" onclick="openURL($(this))">
                 <i class="menu-icon fa fa-caret-right"></i>
-                <span class="menu-text">模块添加</span>
+                <span class="menu-text">权限添加</span>
             </a>
         </li>
-        <li>
-            <a url="/admin/permission/" data-id="4-3" onclick="openURL($(this))">
-                <i class="menu-icon fa fa-caret-right"></i>
-                <span class="menu-text">权限</span>
-            </a>
-        </li>
+        <shiro:hasPermission name="role_manager">
+            <li>
+                <a url="/user/add/" data-id="1-3" onclick="openURL($(this))">
+                    <i class="menu-icon fa fa-caret-right"></i>
+                    <span class="menu-text">角色添加</span>
+                </a>
+            </li>
+            <li>
+                <a url="/user/add/" data-id="1-4" onclick="openURL($(this))">
+                    <i class="menu-icon fa fa-caret-right"></i>
+                    <span class="menu-text">角色权限管理</span>
+                </a>
+            </li>
+        </shiro:hasPermission>
     </ul>
 </li>

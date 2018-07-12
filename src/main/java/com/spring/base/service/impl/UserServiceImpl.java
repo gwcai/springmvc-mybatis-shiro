@@ -22,4 +22,12 @@ public class UserServiceImpl implements IUserService {
     public User getByLoginName(String loginName) {
         return userMapper.selectByLoginName(loginName);
     }
+
+    @Override
+    public int save(User user) {
+        if(null == user.getId()){
+            return userMapper.insert(user);
+        }
+        return userMapper.updateByPrimaryKey(user);
+    }
 }

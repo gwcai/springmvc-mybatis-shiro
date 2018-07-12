@@ -1,10 +1,9 @@
 package com.spring.base.controller;
 
 import com.spring.base.entity.User;
+import com.spring.base.form.UserForm;
 import com.spring.base.form.UserLoginForm;
 import com.spring.base.service.impl.UserServiceImpl;
-import com.spring.base.system.ResponseData;
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -15,10 +14,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * @author GaoWeicai.(gaowc@gfire.cn)
@@ -38,6 +34,17 @@ public class UserController {
     @GetMapping("login")
     public String login(){
         return "login";
+    }
+
+    @GetMapping("add")
+    public String add(){
+        return "user/form";
+    }
+
+    @PostMapping("save")
+    public String save(Model model,UserForm userForm){
+        userService.save(userForm.as());
+        return "user/list";
     }
 
     @PostMapping("login")

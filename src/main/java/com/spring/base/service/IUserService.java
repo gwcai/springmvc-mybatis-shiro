@@ -10,4 +10,6 @@ public interface IUserService {
     User getById(int id);
 
     User getByLoginName(String loginName);
+
+    int save(User user);
 }
