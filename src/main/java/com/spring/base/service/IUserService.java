@@ -6,10 +6,6 @@ import com.spring.base.entity.User;
  * @author GaoWeicai.(gaowc@gfire.cn)
  * @date 2018/7/5
  */
-public interface IUserService {
-    User getById(int id);
-
-    User getByLoginName(String loginName);
-
-    int save(User user);
+public interface IUserService extends IBaseService<User,Integer>{
+    User findByLoginName(String loginName);
 }

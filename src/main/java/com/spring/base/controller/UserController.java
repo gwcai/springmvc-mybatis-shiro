@@ -3,8 +3,11 @@ package com.spring.base.controller;
 import com.spring.base.entity.User;
 import com.spring.base.form.UserForm;
 import com.spring.base.form.UserLoginForm;
+import com.spring.base.query.UserQuery;
 import com.spring.base.service.impl.UserServiceImpl;
 import com.spring.base.system.MD5Util;
+import com.spring.base.system.Page;
+import com.spring.base.system.ResponseData;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -22,7 +25,7 @@ import org.springframework.web.bind.annotation.*;
  * @date 2018/7/5
  */
 @Controller
-@RequestMapping("user")
+@RequestMapping("user/")
 public class UserController {
     @Autowired
     UserServiceImpl userService;
@@ -40,6 +43,18 @@ public class UserController {
     @GetMapping("add")
     public String add(){
         return "user/form";
+    }
+
+    @GetMapping("list")
+    public String list(Model model){
+        model.addAttribute("page",userService.findAll(new UserQuery()));
+        return "user/list";
+    }
+
+    @PostMapping("list")
+    @ResponseBody
+    public Page<User> select(UserQuery query){
+        return userService.findAll(query);
     }
 
     @PostMapping("save")
@@ -63,7 +78,7 @@ public class UserController {
         if (!currentUser.isAuthenticated()) {
             try {
 
-                user = userService.getByLoginName(form.getLoginName());
+                user = userService.findByLoginName(form.getLoginName());
                 if (null == user) {
                     model.addAttribute("msg", "该用户不存在，请联系管理员添加");
                     return "login";

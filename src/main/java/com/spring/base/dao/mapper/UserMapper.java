@@ -1,7 +1,11 @@
 package com.spring.base.dao.mapper;
 
 import com.spring.base.entity.User;
+import com.spring.base.query.UserQuery;
+import com.spring.base.system.BaseQuery;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface UserMapper {
@@ -18,4 +22,8 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     User selectByLoginName(String loginName);
+
+    List<User> findAll(UserQuery query);
+
+    Long count(UserQuery query);
 }

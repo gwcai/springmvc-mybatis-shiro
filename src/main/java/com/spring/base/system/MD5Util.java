@@ -6,10 +6,9 @@ import java.io.IOException;
 import java.security.MessageDigest;
 
 /**
- * @author wust (wst@gfire.cn)
- * @descript 完成文件的MD5加密
- * @create 2017-03-17 10:29
- **/
+ * @author GaoWeicai.(gaowc@gfire.cn)
+ * @date 2018/7/6
+ */
 public class MD5Util {
 
     private static char hexdigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};

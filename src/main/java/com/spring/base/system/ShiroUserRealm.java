@@ -43,7 +43,7 @@ public class ShiroUserRealm extends AuthorizingRealm {
         String loginId = userToken.getUsername();
 
         //获取用户登录信息
-        User user = userService.getByLoginName(loginId);
+        User user = userService.findByLoginName(loginId);
         if (user == null) {
             throw new UnknownAccountException("用户不存在!");
         }
@@ -67,7 +67,7 @@ public class ShiroUserRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         User user = (User) principals.getPrimaryPrincipal();
-        user = userService.getByLoginName(user.getLoginName());
+        user = userService.findByLoginName(user.getLoginName());
         if (CollectionUtils.isNotEmpty(user.getRoleList())) {
             for (Role role : user.getRoleList()) {
                 authorizationInfo.addRole(role.getCode());

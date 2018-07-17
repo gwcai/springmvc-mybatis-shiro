@@ -2,7 +2,10 @@ package com.spring.base.service.impl;
 
 import com.spring.base.dao.mapper.UserMapper;
 import com.spring.base.entity.User;
+import com.spring.base.query.UserQuery;
 import com.spring.base.service.IUserService;
+import com.spring.base.system.BaseQuery;
+import com.spring.base.system.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +18,19 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     UserMapper userMapper;
 
-    public User getById(int id) {
-        return userMapper.selectByPrimaryKey(id);
+    @Override
+    public Page<User> findAll(BaseQuery query) {
+        Page<User> page = new Page<>();
+        page.setPageIndex(query.getPageIndex());
+        page.setPageSize(query.getPageSize());
+        page.setTotals(userMapper.count((UserQuery) query));
+        page.setContent(userMapper.findAll((UserQuery) query));
+        return page;
     }
 
-    public User getByLoginName(String loginName) {
-        return userMapper.selectByLoginName(loginName);
+    @Override
+    public User findById(Integer id) {
+        return userMapper.selectByPrimaryKey(id);
     }
 
     @Override
@@ -29,5 +39,10 @@ public class UserServiceImpl implements IUserService {
             return userMapper.insert(user);
         }
         return userMapper.updateByPrimaryKey(user);
+    }
+
+    @Override
+    public User findByLoginName(String loginName) {
+        return userMapper.selectByLoginName(loginName);
     }
 }

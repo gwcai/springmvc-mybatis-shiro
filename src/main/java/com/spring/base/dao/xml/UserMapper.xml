@@ -25,6 +25,14 @@
     id, name, birthday, sex, address,login_name,password,salt
   </sql>
 
+  <select id="count" parameterType="com.spring.base.query.UserQuery" resultType="Long">
+    select count(*) from "user"
+  </select>
+
+  <select id="findAll" parameterType="com.spring.base.query.UserQuery" resultMap="BaseResultMap">
+    select * from "user" limit #{pageSize} offset #{pageIndex}*#{pageSize}
+  </select>
+
   <select id="selectByLoginName" parameterType="java.lang.String" resultMap="BaseResultMap">
     select * from "user" where login_name = #{login_name,jdbcType=VARCHAR}
   </select>
