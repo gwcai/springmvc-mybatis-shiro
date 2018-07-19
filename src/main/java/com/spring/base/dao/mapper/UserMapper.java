@@ -26,4 +26,6 @@ public interface UserMapper {
     List<User> findAll(UserQuery query);
 
     Long count(UserQuery query);
+
+    int updatePassword(User user);
 }

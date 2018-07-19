@@ -10,9 +10,9 @@ import java.util.List;
  */
 @Data
 public class Page<T> {
-    int pageSize;
-    int pageIndex;
-    long totals;
+    Integer pageSize;
+    Integer pageIndex;
+    Long total;
 
-    List<T> content;
+    List<T> rows;
 }

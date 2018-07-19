@@ -38,7 +38,8 @@ function ajaxReq(url, data, reqType, tips = true, refresh = false) {
         beforeSend: function () {
         },
         error: function (request) {
-            lobibox_alert('error', '请求数据失败,"请求服务器数据失败，请检查网络配置或者稍后再试');
+            if(tips)
+                lobibox_alert('error', '请求数据失败,"请求服务器数据失败，请检查网络配置或者稍后再试');
             result = false;
         },
         success: function (data) {

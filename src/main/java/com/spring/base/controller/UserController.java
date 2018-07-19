@@ -1,12 +1,9 @@
 package com.spring.base.controller;
 
 import com.spring.base.entity.User;
-import com.spring.base.form.UserForm;
 import com.spring.base.form.UserLoginForm;
 import com.spring.base.query.UserQuery;
 import com.spring.base.service.impl.UserServiceImpl;
-import com.spring.base.system.MD5Util;
-import com.spring.base.system.Page;
 import com.spring.base.system.ResponseData;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -46,23 +43,29 @@ public class UserController {
     }
 
     @GetMapping("list")
-    public String list(Model model){
-        model.addAttribute("page",userService.findAll(new UserQuery()));
+    public String list(){
+        //model.addAttribute("page",userService.findAll(new UserQuery()));
         return "user/list";
     }
 
-    @PostMapping("list")
+    @PostMapping(value = "list",consumes = {"application/json"},produces = {"application/json"})
     @ResponseBody
-    public Page<User> select(UserQuery query){
-        return userService.findAll(query);
+    public ResponseData select(@RequestBody UserQuery query){
+        return ResponseData.ok().data(userService.findAll(query));
     }
 
     @PostMapping("save")
-    public String save(Model model,UserForm userForm){
-        userForm.setPassword(MD5Util.getRowMD5(userForm.getPassword()));
-        userForm.setSalt(String.valueOf(System.currentTimeMillis()));
-        userService.save(userForm.as());
-        return "user/list";
+    @ResponseBody
+    public ResponseData save(@RequestBody User user){
+        userService.save(user);
+        return ResponseData.ok().jumpUrl("/user/list");
+    }
+
+    @PostMapping("delete")
+    @ResponseBody
+    public ResponseData delete(@RequestBody String id){
+        userService.delete(Integer.valueOf(id));
+        return ResponseData.ok().jumpUrl("/user/list");
     }
 
     @PostMapping("login")

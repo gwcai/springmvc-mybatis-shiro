@@ -8,6 +8,6 @@ import lombok.Data;
  */
 @Data
 public class BaseQuery {
-    int pageSize = 20;
-    int pageIndex = 0;
+    Integer pageSize = 20;
+    Integer pageIndex = 0;
 }

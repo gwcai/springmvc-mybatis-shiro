@@ -26,11 +26,16 @@
   </sql>
 
   <select id="count" parameterType="com.spring.base.query.UserQuery" resultType="Long">
-    select count(*) from "user"
+    select count(*) from "user" where 1=1
+    <if test="null != name and name != ''"> and name=#{name,jdbcType=VARCHAR}</if>
   </select>
 
   <select id="findAll" parameterType="com.spring.base.query.UserQuery" resultMap="BaseResultMap">
-    select * from "user" limit #{pageSize} offset #{pageIndex}*#{pageSize}
+    select * from "user" where 1=1
+    <if test="null != name and name != ''"> and name=#{name,jdbcType=VARCHAR}</if>
+    <if test="null != pageSize and null != pageIndex">
+      limit #{pageSize,jdbcType=INTEGER} offset #{pageIndex,jdbcType=INTEGER}*#{pageSize,jdbcType=INTEGER}
+    </if>
   </select>
 
   <select id="selectByLoginName" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -54,7 +59,7 @@
     insert into "user" (id, name, birthday,
       sex, address, login_name, password,salt)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, 
-      #{sex,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},#{loginName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{salt,jdbcType=VARCHAR})
+      #{sex,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},#{loginName,jdbcType=VARCHAR},#{salt,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.spring.base.entity.User">
     insert into "user"
@@ -117,6 +122,13 @@
       birthday = #{birthday,jdbcType=DATE},
       sex = #{sex,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <update id="updatePassword" parameterType="com.spring.base.entity.User">
+    update "user"
+    set password = #{password,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
