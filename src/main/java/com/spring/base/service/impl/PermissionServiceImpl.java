@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.security.acl.Permission;
 
 /**
- * @author GaoWeicai.(gaowc@gfire.cn)
+ * @author lili14520@gmail.com
  * @date 2018/7/6
  */
 @Service("permissionService")

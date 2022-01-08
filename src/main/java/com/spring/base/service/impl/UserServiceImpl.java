@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @author GaoWeicai.(gaowc@gfire.cn)
+ * @author lili14520@gmail.com
  * @date 2018/7/5
  */
 @Service("userService")

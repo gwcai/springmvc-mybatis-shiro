@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 
 /**
- * @author GaoWeicai.(gaowc@gfire.cn)
+ * @author lili14520@gmail.com
  * @date 2018/7/6
  */
 public class MD5Util {

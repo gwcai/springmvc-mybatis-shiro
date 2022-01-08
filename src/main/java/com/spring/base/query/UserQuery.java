@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * @author GaoWeicai.(gaowc@gfire.cn)
+ * @author lili14520@gmail.com
  * @date 2018/7/17
  */
 @Getter

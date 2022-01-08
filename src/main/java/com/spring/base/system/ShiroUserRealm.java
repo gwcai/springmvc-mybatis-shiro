@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * @author GaoWeicai.(gaowc@gfire.cn)
+ * @author lili14520@gmail.com
  * @date 2018/7/6
  */
 public class ShiroUserRealm extends AuthorizingRealm {

@@ -3,7 +3,7 @@ package com.spring.base.system;
 import lombok.Data;
 
 /**
- * @author GaoWeicai.(gaowc@gfire.cn)
+ * @author lili14520@gmail.com
  * @date 2018/7/17
  */
 @Data
